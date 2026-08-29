@@ -480,6 +480,43 @@ display:grid;
 grid-template-columns:2fr 1fr 1fr;
 gap:15px
 }
+.facebook-gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+align-items:start
+}
+.facebook-gallery-item{
+min-width:0;
+border:1px solid rgba(255,255,255,.12);
+border-radius:18px;
+padding:12px;
+background:rgba(255,255,255,.06);
+overflow:hidden
+}
+.facebook-gallery-item .fb-post{
+width:100%;
+min-height:220px;
+display:flex;
+justify-content:center;
+background:#fff;
+border-radius:10px;
+overflow:hidden
+}
+.facebook-gallery-item .fb-post iframe{
+max-width:100%
+}
+.facebook-photo-link{
+display:block;
+margin:11px 4px 2px;
+color:#9fe4ff;
+font-size:12px;
+font-weight:700;
+text-decoration:none
+}
+.facebook-photo-link:hover{
+text-decoration:underline
+}
 
 .gallery-item{
 min-height:180px;
@@ -511,9 +548,22 @@ font-size:13px
 .video-box{
 border:1px dashed #8bb9ca;
 border-radius:20px;
-padding:45px;
+padding:32px;
 text-align:center;
 background:#f7fbfd
+}
+.video-box .fb-video{
+max-width:500px;
+margin:0 auto 22px;
+min-height:280px;
+display:flex;
+justify-content:center;
+background:#eaf5f9;
+border-radius:14px;
+overflow:hidden
+}
+.video-box .fb-video iframe{
+max-width:100%
 }
 
 .video-box .play{
@@ -679,12 +729,16 @@ grid-template-columns:repeat(2,1fr)
 grid-template-columns:repeat(2,1fr)
 }
 
-.gallery{
+.gallery,
+.facebook-gallery{
 grid-template-columns:1fr 1fr
 }
 
 .gallery-item.large{
 grid-row:auto
+}
+.facebook-gallery-item .fb-post{
+min-height:190px
 }
 
 .footer-grid{
@@ -733,6 +787,7 @@ font-size:43px
 .process,
 .social,
 .gallery,
+.facebook-gallery,
 .footer-grid{
 grid-template-columns:1fr
 }
@@ -764,6 +819,8 @@ height:80px
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1"></script>
 
 <!-- TOP BAR -->
 
@@ -1457,104 +1514,54 @@ Showcase Your PKR Projects Here
 </h2>
 
 <p>
-This gallery is ready for your real project photographs.
-Replace these visual cards with your installation photos
-as the portfolio grows.
+Photos from the official PKR Facebook page, shown directly from Facebook.
 </p>
 
 </div>
 
 
-<div class="gallery">
-
-
-<div class="gallery-item large">
-
-<div>
-
-<h3>
-Cold Storage Projects
-</h3>
-
-<p>
-Real PKR installations can be featured here.
-</p>
-
+<div class="facebook-gallery">
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=122110192431433690&set=pb.61593010719325.-2207520000&type=3" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo.php?fbid=122110192431433690&set=pb.61593010719325.-2207520000&type=3" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110192221433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110192221433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
-
-<div class="gallery-item">
-
-<div>
-
-<h3>
-Cold Rooms
-</h3>
-
-<p>
-Chiller & freezer applications
-</p>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110192179433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110192179433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110192143433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110192143433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
-
-<div class="gallery-item">
-
-<div>
-
-<h3>
-Blast Freezing
-</h3>
-
-<p>
-Industrial rapid-freezing systems
-</p>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110191255433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110191255433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110191135433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110191135433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
-
-<div class="gallery-item">
-
-<div>
-
-<h3>
-Industrial Refrigeration
-</h3>
-
-<p>
-Engineered refrigeration systems
-</p>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110190133433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110190133433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110190001433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110190001433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
-
-<div class="gallery-item">
-
-<div>
-
-<h3>
-Cold Chain
-</h3>
-
-<p>
-Temperature-controlled solutions
-</p>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=122110189233433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo/?fbid=122110189233433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
+<div class="facebook-gallery-item">
+<div class="fb-post" data-href="https://www.facebook.com/photo?fbid=122110188915433690&set=pb.61593010719325.-2207520000" data-width="500" data-show-text="false"></div>
+<a class="facebook-photo-link" href="https://www.facebook.com/photo?fbid=122110188915433690&set=pb.61593010719325.-2207520000" target="_blank" rel="noopener">View photo on Facebook →</a>
 </div>
-
-
 </div>
-
 </div>
 
 </section>
@@ -1577,40 +1584,29 @@ Our Projects, Installations & Technical Videos
 </h2>
 
 <p>
-This section is prepared for future YouTube, Facebook and
-other social-media videos. Add your video links as your
-content library grows.
+Watch PKR’s latest cold-chain and refrigeration video directly from Facebook.
 </p>
 
 </div>
 
 
 <div class="video-box">
-
-<div class="play">
-▶
-</div>
-
+<div class="fb-video" data-href="https://www.facebook.com/reel/975543338362841" data-width="500" data-show-text="false" data-allowfullscreen="true"></div>
 <h3>
-PKR Video Gallery Coming Soon
+PKR Cold-Chain Video
 </h3>
-
 <p>
-Project walkthroughs • Installation videos • Cold-room tours •
-Engineering tips • Customer projects
+Watch the full video on Facebook.
 </p>
-
 <a
 class="btn btn-primary"
-href="https://www.facebook.com/profile.php?id=61593010719325"
+href="https://www.facebook.com/reel/975543338362841"
 target="_blank"
 rel="noopener"
 >
-Visit PKR Facebook
+Open Video on Facebook →
 </a>
-
 </div>
-
 </div>
 
 </section>
