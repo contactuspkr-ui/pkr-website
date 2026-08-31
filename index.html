@@ -571,6 +571,47 @@ font-size:13px
 display:inline-flex;
 }
 
+.documents-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px
+}
+.document-card{
+display:grid;
+grid-template-columns:minmax(150px,.75fr) 1fr;
+gap:20px;
+align-items:center;
+padding:18px;
+border:1px solid var(--line);
+border-radius:20px;
+background:#fff;
+box-shadow:0 10px 28px rgba(7,26,45,.08)
+}
+.document-card img{
+width:100%;
+aspect-ratio:1/1.16;
+object-fit:cover;
+object-position:top;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(7,26,45,.14)
+}
+.document-card h3{
+margin:0 0 8px
+}
+.document-card p{
+margin:0 0 17px;
+color:var(--muted);
+font-size:14px
+}
+.document-actions{
+display:flex;
+flex-wrap:wrap;
+gap:9px
+}
+.document-actions .btn{
+font-size:12px;
+padding:10px 13px
+}
 
 .social{
 display:grid;
@@ -807,6 +848,7 @@ width:100%
 .social,
 .project-grid,
 .video-grid,
+.documents-grid,
 .footer-grid{
 grid-template-columns:1fr
 }
@@ -911,6 +953,8 @@ PAK KOOLING & REFRIGERATION
 <a href="#projects">Projects</a>
 
 <a href="#videos">Videos</a>
+
+<a href="#documents">Catalog</a>
 
 <a href="#contact">Contact</a>
 
@@ -1634,6 +1678,52 @@ Aap ka browser video playback support nahi karta.
 <p>Direct website video: PKR manufacturing, quality control, refrigeration units and service process.</p>
 </div>
 </div>
+</div>
+
+</section>
+
+
+<!-- COMPANY DOCUMENTS -->
+
+<section class="light" id="documents">
+
+<div class="container">
+
+<div class="section-head center">
+
+<div class="kicker">Company Documents</div>
+
+<h2>Catalog & Company Profile</h2>
+
+<p>Learn more about PKR’s cold-chain capabilities, services and complete refrigeration solutions.</p>
+
+</div>
+
+<div class="documents-grid">
+<div class="document-card">
+<img src="assets/documents/pkr-company-profile-cover.jpg" alt="Cover of the Pak Kooling and Refrigeration company profile">
+<div>
+<h3>Company Profile</h3>
+<p>Our company overview, engineering capabilities, cold-chain services and commitment to reliable temperature-controlled solutions.</p>
+<div class="document-actions">
+<a class="btn btn-primary" href="assets/documents/pkr-company-profile.pdf" target="_blank" rel="noopener">Open Profile</a>
+<a class="btn" style="background:#071a2d;color:#fff" href="assets/documents/pkr-company-profile.pdf" download>Download PDF</a>
+</div>
+</div>
+</div>
+<div class="document-card">
+<img src="assets/documents/pkr-product-catalog-cover.jpg" alt="Cover of the Pak Kooling and Refrigeration product catalog">
+<div>
+<h3>Product Catalog</h3>
+<p>Explore PKR’s cold storage, refrigeration, engineering, installation and maintenance solutions in one catalog.</p>
+<div class="document-actions">
+<a class="btn btn-primary" href="assets/documents/pkr-product-catalog.pdf" target="_blank" rel="noopener">Open Catalog</a>
+<a class="btn" style="background:#071a2d;color:#fff" href="assets/documents/pkr-product-catalog.pdf" download>Download PDF</a>
+</div>
+</div>
+</div>
+</div>
+
 </div>
 
 </section>
