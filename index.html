@@ -743,13 +743,23 @@ grid-template-columns:1fr 1fr
 
 @media(max-width:600px){
 
+.container{
+width:min(100% - 28px,1160px)
+}
+
+.topbar{
+font-size:11px
+}
+
 .topbar .container{
 justify-content:center;
-text-align:center
+text-align:center;
+gap:4px
 }
 
 .nav{
-height:70px
+height:70px;
+gap:10px
 }
 
 .site-logo{
@@ -759,19 +769,34 @@ height:52px
 
 .brand{
 gap:9px;
-font-size:12px
+font-size:11px;
+line-height:1.15;
+max-width:calc(100% - 46px)
+}
+
+.brand span{
+white-space:nowrap
 }
 
 .brand small{
 font-size:8px
 }
 
+.menu{
+padding:9px 4px
+}
+
 .hero{
-padding:75px 0 65px
+padding:65px 0 58px
 }
 
 h1{
-font-size:43px
+font-size:40px;
+letter-spacing:-1.8px
+}
+
+.actions .btn{
+width:100%
 }
 
 .cards,
@@ -781,6 +806,7 @@ font-size:43px
 .process,
 .social,
 .project-grid,
+.video-grid,
 .footer-grid{
 grid-template-columns:1fr
 }
@@ -791,13 +817,36 @@ border-bottom:1px solid var(--line)
 }
 
 section{
-padding:65px 0
+padding:58px 0
+}
+
+.video-box{
+padding:12px
+}
+
+.local-video{
+max-height:460px
 }
 
 .hero-card .temp-icon{
 width:94px;
 height:94px;
 margin-bottom:18px
+}
+
+.float-wa,.float-fb{
+right:14px;
+width:50px;
+height:50px;
+font-size:22px
+}
+
+.float-wa{
+bottom:14px
+}
+
+.float-fb{
+bottom:76px
 }
 
 .footer-logo{
@@ -851,7 +900,7 @@ PAK KOOLING & REFRIGERATION
 </a>
 
 
-<nav>
+<nav id="main-navigation">
 
 <a href="#about">About</a>
 
@@ -872,7 +921,7 @@ Get a Quote
 </nav>
 
 
-<button class="menu" onclick="toggleMenu()">
+<button class="menu" type="button" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
 ☰
 </button>
 
@@ -2038,11 +2087,15 @@ new Date().getFullYear();
 
 function toggleMenu(){
 
-const n = document.querySelector("nav");
+const n = document.querySelector("#main-navigation");
+const button = document.querySelector(".menu");
+const isOpen = n.style.display === "flex";
 
-if(n.style.display === "flex"){
+if(isOpen){
 
 n.style.display = "none";
+button.setAttribute("aria-expanded", "false");
+button.setAttribute("aria-label", "Open navigation menu");
 
 }else{
 
@@ -2051,14 +2104,29 @@ n.style.position = "absolute";
 n.style.top = "70px";
 n.style.left = "0";
 n.style.right = "0";
-n.style.padding = "20px";
+n.style.padding = "20px 7%";
 n.style.background = "#071a2d";
 n.style.flexDirection = "column";
 n.style.alignItems = "stretch";
+button.setAttribute("aria-expanded", "true");
+button.setAttribute("aria-label", "Close navigation menu");
 
 }
 
 }
+
+
+document.querySelectorAll("#main-navigation a").forEach(function(link){
+link.addEventListener("click", function(){
+const n = document.querySelector("#main-navigation");
+const button = document.querySelector(".menu");
+if(window.innerWidth <= 900){
+n.style.display = "none";
+button.setAttribute("aria-expanded", "false");
+button.setAttribute("aria-label", "Open navigation menu");
+}
+});
+});
 
 
 function sendQuote(e){
