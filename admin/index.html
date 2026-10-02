@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PKR Media Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="login-view" class="panel login-panel">
+      <div class="brand-mark">PKR</div>
+      <p class="eyebrow">Private website admin</p>
+      <h1>Manage PKR media</h1>
+      <p class="muted">Sign in to add or update images, videos and PDF documents on the public website.</p>
+      <form id="login-form">
+        <label for="password">Admin password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button class="button primary" type="submit">Sign in</button>
+        <p id="login-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="app-view" hidden>
+      <header class="topbar">
+        <div><span class="eyebrow">PKR website</span><h1>Media manager</h1></div>
+        <div class="top-actions"><a class="button ghost" href="/" target="_blank" rel="noopener">View website</a><button id="logout" class="button ghost">Log out</button></div>
+      </header>
+      <div id="notice" class="notice" role="status"></div>
+      <section class="panel">
+        <div class="section-title"><div><p class="eyebrow">Add new content</p><h2>Upload media</h2></div><p class="muted">Use MP4 for videos, PDF for documents, and JPG/PNG/WebP for images. Keep each file under 24 MB.</p></div>
+        <form id="upload-form" class="form-grid">
+          <label>Media type<select name="type" id="media-type"><option value="gallery">Image / gallery</option><option value="videos">Video</option><option value="documents">PDF document</option></select></label>
+          <label>Title<input name="title" required placeholder="e.g. New Cold Storage Project"></label>
+          <label class="wide">Description<textarea name="description" rows="3" placeholder="Short description shown on the website"></textarea></label>
+          <label>File<input name="file" id="media-file" type="file" required></label>
+          <label id="poster-field" hidden>Video poster (optional)<input name="poster" type="file" accept="image/*"></label>
+          <label id="cover-field" hidden>PDF cover image (optional)<input name="cover" type="file" accept="image/*"></label>
+          <div class="wide"><button class="button primary" type="submit">Upload and publish</button><span id="upload-status" class="muted"></span></div>
+        </form>
+      </section>
+      <section class="panel">
+        <div class="section-title"><div><p class="eyebrow">Current content</p><h2>Edit or hide media</h2></div><p class="muted">Changes are saved to the website repository. Hiding an item removes it from the public page without deleting the original file.</p></div>
+        <div id="media-lists"></div>
+        <button id="save-catalog" class="button primary">Save catalog changes</button>
+      </section>
+    </section>
+  </main>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

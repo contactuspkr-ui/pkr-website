@@ -1,0 +1,19 @@
+{
+  "gallery": [
+    {"id":"cold-storage-facilities","title":"Cold Storage Facilities","description":"Large-scale temperature-controlled storage for food, agriculture and distribution.","src":"assets/project-cold-storage.jpg","alt":"Modern cold storage facility with refrigeration equipment and produce crates"},
+    {"id":"cold-freezer-rooms","title":"Cold & Freezer Rooms","description":"Insulated walk-in rooms designed for chilled and frozen product protection.","src":"assets/project-freezer-room.jpg","alt":"Walk-in freezer room with insulated doors and frozen goods"},
+    {"id":"blast-freezing-systems","title":"Blast Freezing Systems","description":"Rapid-freezing environments for meat, poultry, seafood and food processing.","src":"assets/project-blast-freezer.jpg","alt":"Industrial blast freezer installation with refrigeration piping"},
+    {"id":"ripening-chambers","title":"Ripening Chambers","description":"Controlled temperature, humidity and airflow for consistent fruit ripening.","src":"assets/project-ripening-chamber.jpg","alt":"Fruit ripening chamber with organized produce crates"},
+    {"id":"pharmaceutical-cold-chain","title":"Pharmaceutical Cold Chain","description":"Clean, monitored cold environments for temperature-sensitive medicines.","src":"assets/project-pharma-cold-chain.jpg","alt":"Pharmaceutical cold-chain room with organized medical storage"},
+    {"id":"industrial-refrigeration","title":"Industrial Refrigeration","description":"Engineered compressor, condenser, piping and control-room installations.","src":"assets/project-industrial-refrigeration.jpg","alt":"Industrial refrigeration plant with compressors and insulated piping"}
+  ],
+  "videos": [
+    {"id":"pkr-cold-storage-solutions","title":"PKR Cold Storage Solutions","description":"Direct website video: smart cold rooms, installation and refrigeration solutions.","src":"assets/pkr-cold-storage-video-1.mp4","poster":"assets/pkr-cold-storage-video-1-poster.png"},
+    {"id":"industrial-refrigeration-solutions","title":"Industrial Refrigeration Solutions","description":"Direct website video: PKR manufacturing, quality control, refrigeration units and service process.","src":"assets/pkr-industrial-refrigeration-video-2.mp4","poster":"assets/pkr-industrial-refrigeration-video-2-poster.png"},
+    {"id":"pkr-customer-project-video","title":"PKR Customer Project Video","description":"Customer-supplied video showcasing PKR’s cold-chain and refrigeration work.","src":"assets/pkr-customer-video-3.mp4","poster":"assets/pkr-customer-video-3-poster.jpg"}
+  ],
+  "documents": [
+    {"id":"company-profile","title":"Company Profile","description":"Our company overview, engineering capabilities, cold-chain services and commitment to reliable temperature-controlled solutions.","src":"assets/documents/pkr-company-profile.pdf","cover":"assets/documents/pkr-company-profile-cover.jpg"},
+    {"id":"product-catalog","title":"Product Catalog","description":"Explore PKR’s cold storage, refrigeration, engineering, installation and maintenance solutions in one catalog.","src":"assets/documents/pkr-product-catalog.pdf","cover":"assets/documents/pkr-product-catalog-cover.jpg"}
+  ]
+}

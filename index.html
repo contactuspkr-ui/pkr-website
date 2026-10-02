@@ -1623,32 +1623,7 @@ Explore representative cold-chain solutions across storage, processing, agricult
 
 </div>
 
-<div class="project-grid">
-<div class="project-card">
-<img src="assets/project-cold-storage.jpg" alt="Modern cold storage facility with refrigeration equipment and produce crates">
-<div class="project-card-body"><h3>Cold Storage Facilities</h3><p>Large-scale temperature-controlled storage for food, agriculture and distribution.</p></div>
-</div>
-<div class="project-card">
-<img src="assets/project-freezer-room.jpg" alt="Walk-in freezer room with insulated doors and frozen goods">
-<div class="project-card-body"><h3>Cold & Freezer Rooms</h3><p>Insulated walk-in rooms designed for chilled and frozen product protection.</p></div>
-</div>
-<div class="project-card">
-<img src="assets/project-blast-freezer.jpg" alt="Industrial blast freezer installation with refrigeration piping">
-<div class="project-card-body"><h3>Blast Freezing Systems</h3><p>Rapid-freezing environments for meat, poultry, seafood and food processing.</p></div>
-</div>
-<div class="project-card">
-<img src="assets/project-ripening-chamber.jpg" alt="Fruit ripening chamber with organized produce crates">
-<div class="project-card-body"><h3>Ripening Chambers</h3><p>Controlled temperature, humidity and airflow for consistent fruit ripening.</p></div>
-</div>
-<div class="project-card">
-<img src="assets/project-pharma-cold-chain.jpg" alt="Pharmaceutical cold-chain room with organized medical storage">
-<div class="project-card-body"><h3>Pharmaceutical Cold Chain</h3><p>Clean, monitored cold environments for temperature-sensitive medicines.</p></div>
-</div>
-<div class="project-card">
-<img src="assets/project-industrial-refrigeration.jpg" alt="Industrial refrigeration plant with compressors and insulated piping">
-<div class="project-card-body"><h3>Industrial Refrigeration</h3><p>Engineered compressor, condenser, piping and control-room installations.</p></div>
-</div>
-</div>
+<div id="project-grid" class="project-grid" aria-live="polite"></div>
 </div>
 
 </section>
@@ -1677,38 +1652,7 @@ Watch PKR’s cold-chain and refrigeration work directly on this website.
 </div>
 
 
-<div class="video-grid">
-<div class="video-box">
-<div class="local-video-wrap">
-<video class="local-video" controls preload="metadata" poster="assets/pkr-cold-storage-video-1-poster.png">
-<source src="assets/pkr-cold-storage-video-1.mp4" type="video/mp4">
-Aap ka browser video playback support nahi karta.
-</video>
-</div>
-<h3>PKR Cold Storage Solutions</h3>
-<p>Direct website video: smart cold rooms, installation and refrigeration solutions.</p>
-</div>
-<div class="video-box">
-<div class="local-video-wrap">
-<video class="local-video" controls preload="metadata" poster="assets/pkr-industrial-refrigeration-video-2-poster.png">
-<source src="assets/pkr-industrial-refrigeration-video-2.mp4" type="video/mp4">
-Aap ka browser video playback support nahi karta.
-</video>
-</div>
-<h3>Industrial Refrigeration Solutions</h3>
-<p>Direct website video: PKR manufacturing, quality control, refrigeration units and service process.</p>
-</div>
-<div class="video-box">
-<div class="local-video-wrap">
-<video class="local-video" controls preload="metadata" poster="assets/pkr-customer-video-3-poster.jpg">
-<source src="assets/pkr-customer-video-3.mp4" type="video/mp4">
-Aap ka browser video playback support nahi karta.
-</video>
-</div>
-<h3>PKR Customer Project Video</h3>
-<p>Customer-supplied video showcasing PKR’s cold-chain and refrigeration work.</p>
-</div>
-</div>
+<div id="video-grid" class="video-grid" aria-live="polite"></div>
 </div>
 
 </section>
@@ -1730,30 +1674,7 @@ Aap ka browser video playback support nahi karta.
 
 </div>
 
-<div class="documents-grid">
-<div class="document-card">
-<img src="assets/documents/pkr-company-profile-cover.jpg" alt="Cover of the Pak Kooling and Refrigeration company profile">
-<div>
-<h3>Company Profile</h3>
-<p>Our company overview, engineering capabilities, cold-chain services and commitment to reliable temperature-controlled solutions.</p>
-<div class="document-actions">
-<a class="btn btn-primary" href="assets/documents/pkr-company-profile.pdf" target="_blank" rel="noopener">Open Profile</a>
-<a class="btn" style="background:#071a2d;color:#fff" href="assets/documents/pkr-company-profile.pdf" download>Download PDF</a>
-</div>
-</div>
-</div>
-<div class="document-card">
-<img src="assets/documents/pkr-product-catalog-cover.jpg" alt="Cover of the Pak Kooling and Refrigeration product catalog">
-<div>
-<h3>Product Catalog</h3>
-<p>Explore PKR’s cold storage, refrigeration, engineering, installation and maintenance solutions in one catalog.</p>
-<div class="document-actions">
-<a class="btn btn-primary" href="assets/documents/pkr-product-catalog.pdf" target="_blank" rel="noopener">Open Catalog</a>
-<a class="btn" style="background:#071a2d;color:#fff" href="assets/documents/pkr-product-catalog.pdf" download>Download PDF</a>
-</div>
-</div>
-</div>
-</div>
+<div id="documents-grid" class="documents-grid" aria-live="polite"></div>
 
 </div>
 
@@ -2249,6 +2170,23 @@ button.setAttribute("aria-label", "Open navigation menu");
 });
 });
 
+
+function escapeMedia(value){
+return String(value || "").replace(/[&<>\"']/g, function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]; });
+}
+
+function mediaUrl(path){ return path ? "/" + path.replace(/^\//, "") : ""; }
+
+function renderMedia(data){
+const gallery = document.getElementById("project-grid");
+const videos = document.getElementById("video-grid");
+const documents = document.getElementById("documents-grid");
+if(gallery) gallery.innerHTML = (data.gallery || []).map(function(item){ return '<div class="project-card"><img src="' + mediaUrl(item.src) + '" alt="' + escapeMedia(item.alt || item.title) + '"><div class="project-card-body"><h3>' + escapeMedia(item.title) + '</h3><p>' + escapeMedia(item.description) + '</p></div></div>'; }).join("");
+if(videos) videos.innerHTML = (data.videos || []).map(function(item){ return '<div class="video-box"><div class="local-video-wrap"><video class="local-video" controls preload="metadata" poster="' + mediaUrl(item.poster) + '"><source src="' + mediaUrl(item.src) + '" type="video/mp4">Aap ka browser video playback support nahi karta.</video></div><h3>' + escapeMedia(item.title) + '</h3><p>' + escapeMedia(item.description) + '</p></div>'; }).join("");
+if(documents) documents.innerHTML = (data.documents || []).map(function(item){ const src=mediaUrl(item.src); return '<div class="document-card">' + (item.cover ? '<img src="' + mediaUrl(item.cover) + '" alt="Cover of ' + escapeMedia(item.title) + '">' : '') + '<div><h3>' + escapeMedia(item.title) + '</h3><p>' + escapeMedia(item.description) + '</p><div class="document-actions"><a class="btn btn-primary" href="' + src + '" target="_blank" rel="noopener">Open ' + escapeMedia(item.title) + '</a><a class="btn" style="background:#071a2d;color:#fff" href="' + src + '" download>Download PDF</a></div></div></div>'; }).join("");
+}
+
+fetch("/content/media.json", {cache:"no-cache"}).then(function(response){ if(!response.ok) throw new Error("media manifest unavailable"); return response.json(); }).then(renderMedia).catch(function(error){ console.warn("PKR media manifest could not be loaded", error); });
 
 function sendQuote(e){
 
